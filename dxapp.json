@@ -1,45 +1,29 @@
 {
-  "name": "vcf2gds",
-  "title": "VCF to GDS Converter",
-  "summary": "Converts a VCF file to a GDS file",
+  "name": "impact_vcf2gds",
+  "title": "IMPACT VCF to GDS Converter",
+  "summary": "Converts VCF files to GDS Files for the IMPACT pipeline",
   "dxapi": "1.0.0",
   "version": "0.0.3",
   "inputSpec": [
     {
-      "name": "vcf_file",
-      "label": "VCF to convert",
-      "class": "file",
+      "name": "vcf_files",
+      "label": "VCF Files",
+      "class": "array:file",
       "optional": false,
       "patterns": [
-        "*"
+        "*.vcf",
+        "*.vcf.gz"
       ],
-      "help": "Name of VCF file to convert"
-    },
-    {
-      "name": "gds_filename",
-      "label": "Filename of GDS to output",
-      "class": "string",
-      "optional": false,
-      "help": "Name of GDS output file"
-    },
-    {
-      "name": "parallel",
-      "label": "Number of parallel processes for conversion",
-      "class": "int",
-      "optional": true,
-      "default": 30,
-      "help": ""
+      "help": "Array or singular VCF files to convert"
     }
   ],
   "outputSpec": [
     {
-      "name": "gds",
-      "label": "GDS file",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
+      "name": "gds_files",
+      "label": "GDS Files",
+      "class": "array:file",
+      "patterns": ["*.gds"],
+      "help": "Converted GDS files"
     }
   ],
   "runSpec": {
